@@ -1,10 +1,10 @@
+import { Counter } from "./Bases/Counter"
 
 
 function App() {
   return (
     <>
-    <h1>react</h1>
-    <hr />
+      <Counter initialValue={10}/>
     </>
   )
 }
