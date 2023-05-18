@@ -27,7 +27,7 @@ export const CounterBy = ({ initialValue = 0 }: CouterProps) => {
             <p>CounterBy : {counter}</p>
             <p>clicks : {clicks}</p>
             <button onClick={ ()=> handleSuma(1)}>+1</button>
-            <button onClick={ ()=> handleSuma(5)}>+1</button>
+            <button onClick={ ()=> handleSuma(5)}>+5</button>
         </>
     )
 }
