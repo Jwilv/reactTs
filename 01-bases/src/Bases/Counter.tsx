@@ -1,6 +1,12 @@
 import {useState} from 'react' 
 
-export const Counter = ({ initialValue = 0 }) => {
+
+// el ? es por que no es si o si necesario
+interface CouterProps {
+    initialValue?: number
+}
+
+export const Counter = ({ initialValue = 0 } : CouterProps) => {
 
     const [counter, setCounter] = useState( initialValue )
 
