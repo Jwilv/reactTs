@@ -6,19 +6,22 @@ interface CouterProps {
     initialValue?: number
 }
 
+interface CounterState {
+    counter: number,
+    clicks: number
+}
+
 export const CounterBy = ({ initialValue = 0 }: CouterProps) => {
 
-    const [counterState, setCounterState] = useState({
+    const [{ counter, clicks }, setCounterState] = useState<CounterState>({
         counter: initialValue,
         clicks: 0,
     })
 
-    const {counter, clicks} = counterState;
-
-    const handleSuma = (value : number) => {
-        setCounterState( pre => ({
-            counter : pre.counter + value,
-            clicks : pre.clicks + 1
+    const handleSuma = (value: number) => {
+        setCounterState(({ counter, clicks }) => ({
+            counter: counter + value,
+            clicks: clicks + 1
         }))
     }
 
@@ -26,8 +29,8 @@ export const CounterBy = ({ initialValue = 0 }: CouterProps) => {
         <>
             <p>CounterBy : {counter}</p>
             <p>clicks : {clicks}</p>
-            <button onClick={ ()=> handleSuma(1)}>+1</button>
-            <button onClick={ ()=> handleSuma(5)}>+5</button>
+            <button onClick={() => handleSuma(1)}>+1</button>
+            <button onClick={() => handleSuma(5)}>+5</button>
         </>
     )
 }
