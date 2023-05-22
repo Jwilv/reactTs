@@ -1,5 +1,6 @@
 import { Counter } from "./Bases/Counter"
 import { CounterBy } from "./Bases/CounterBy"
+import { CouterEffect } from "./Bases/CounterEffect"
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <Counter initialValue={10}/>
       <CounterBy/>
+      <CouterEffect />
     </>
   )
 }
