@@ -1,3 +1,4 @@
+import { gsap } from 'gsap'
 import { useEffect, useState } from 'react'
 
 export const CouterEffect = () => {
@@ -13,6 +14,10 @@ export const CouterEffect = () => {
     useEffect(() => {
         if (counter < 10 ) return ;
         console.log("%cEl numero es mayor a 10","color : red")
+
+        gsap.to('p',{y:-10, duration:0.5 , ease:'ease.out'}).then( ()=>{
+            gsap.to('p',{y:0, duration:1 , ease:'bounce.out'})
+        })
     }, [counter])
 
 
