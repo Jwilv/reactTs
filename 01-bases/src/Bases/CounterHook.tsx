@@ -1,5 +1,3 @@
-import { gsap } from 'gsap'
-import { useEffect, useRef, useState } from 'react'
 import { useCounter } from '../hooks/usecounter'
 
 export const CounterHook = () => {
