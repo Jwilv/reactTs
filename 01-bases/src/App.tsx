@@ -1,6 +1,7 @@
 import { Counter } from "./Bases/Counter"
 import { CounterBy } from "./Bases/CounterBy"
 import { CouterEffect } from "./Bases/CounterEffect"
+import { CounterHook } from "./Bases/CounterHook"
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Counter initialValue={10}/>
       <CounterBy/>
       <CouterEffect />
+      <CounterHook />
     </>
   )
 }
