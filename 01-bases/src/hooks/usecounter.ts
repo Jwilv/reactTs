@@ -1,32 +1,45 @@
 import { gsap } from "gsap"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 
+interface HookProps {
+    initialCounter?: number,
+    maxCount: number,
+}
 
-export const useCounter = () => {
-    const [counter, setCounter] = useState(5)
+export const useCounter = ({ initialCounter = 0, maxCount }: HookProps) => {
 
-    const counterElement = useRef<HTMLHeadingElement>(null)
+    const [counter, setCounter] = useState(initialCounter)
 
-    const MAX_COUNT = 10
+    const elementToAnimate = useRef<any>(null)
+
+    const tl = useRef(gsap.timeline())
 
     const handleSuma = () => {
-        setCounter(pre => Math.min(pre + 1, MAX_COUNT))
+        setCounter(pre => Math.min(pre + 1, maxCount))
     }
 
+    useLayoutEffect(() => {
+
+        if(!elementToAnimate.current) return ;
+
+        console.log('hola')
+
+        tl.current.to(elementToAnimate.current, { y: -10, duration: 0.5, ease: 'ease.out' })
+            .to(elementToAnimate.current, { y: 0, duration: 1, ease: 'bounce.out' })
+            .pause()
+
+    }, [])
+
     useEffect(() => {
-        if (counter < 10) return;
-        console.log("%cEl numero es mayor a 10", "color : red")
 
-        const tl = gsap.timeline()
-
-        tl.to(counterElement.current, { y: -10, duration: 0.5, ease: 'ease.out' })
-            .to(counterElement.current, { y: 0, duration: 1, ease: 'bounce.out' })
+        // if( counter < maxCount ) return;
+        tl.current.play(0)
 
     }, [counter])
 
-    return{
+    return {
         handleSuma,
         counter,
-        counterElement
+        elementToAnimate
     }
 }
