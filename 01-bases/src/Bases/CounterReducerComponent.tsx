@@ -47,9 +47,16 @@ export const CounterReducerComponent = () => {
         dispatch({ type: 'reset' })
     }
 
+    const handleSuma = ()=>{
+        dispatch({type:'incrementBy', payload:{value : 10}})
+    }
+
     return (
         <>
-            <p>{counter}</p>
+            <p>counter: {counter}</p>
+            <p>chages: {changes}</p>
+            <p>previoous: {previous}</p>
+            <button onClick={handleSuma}>+10</button>
             <button onClick={handleReset}>reset</button>
         </>
     )
