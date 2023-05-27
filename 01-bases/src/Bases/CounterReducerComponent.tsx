@@ -26,6 +26,14 @@ const counterReducer = (state: CounterState, action: counterAction): CounterStat
                 changes: 0,
             }
 
+        case 'incrementBy':
+            return{
+                ...state,
+                counter : state.counter + action.payload.value,
+                previous : state.counter,
+                changes : state.changes + 1,
+            }
+
         default:
             return state;
     }
