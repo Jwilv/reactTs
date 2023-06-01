@@ -7,9 +7,7 @@ const INITIAL_STATE: CounterState = {
     changes: 0,
 }
 
-type counterAction =
-    | { type: 'incrementBy', payload: { value: number } }
-    | { type: 'reset' };
+
 
 const counterReducer = (state: CounterState, action: counterAction): CounterState => {
 
