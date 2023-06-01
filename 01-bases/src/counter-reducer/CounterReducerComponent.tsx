@@ -1,10 +1,5 @@
 import { useReducer } from 'react'
-
-interface CounterState {
-    counter: number;
-    previous: number;
-    changes: number;
-}
+import { CounterState } from './interfaces';
 
 const INITIAL_STATE: CounterState = {
     counter: 0,
