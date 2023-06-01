@@ -5,3 +5,8 @@ export type counterAction =
 export const doReset = (): counterAction => ({
     type: 'reset'
 })
+
+export const doIncrementBy = (value: number): counterAction => ({
+    type: 'incrementBy',
+    payload: { value },
+})

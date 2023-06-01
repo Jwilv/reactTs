@@ -1,7 +1,7 @@
 import { useReducer } from 'react'
 import { CounterState } from './interfaces';
 import { counterReducer } from './state';
-import { doReset } from './actions';
+import { doIncrementBy, doReset } from './actions';
 
 const INITIAL_STATE: CounterState = {
     counter: 0,
@@ -18,7 +18,7 @@ export const CounterReducerComponent = () => {
     }
 
     const handleSuma = ()=>{
-        dispatch({type:'incrementBy', payload:{value : 10}})
+        dispatch( doIncrementBy(10) )
     }
 
     return (
