@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
 import logo from '../assets/react.svg'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export const Navigation = () => {
     return (
@@ -11,14 +11,16 @@ export const Navigation = () => {
                 <nav>
                     <img src={logo} alt='logo' />
                     <ul>
-                        <li><Link to={'/'} className='nav-active'>home</Link></li>
-                        <li><Link to={'/about'} className='nav-active'>about</Link></li>
+                        <li><NavLink to={'/lazy'} className='nav-active'>lazy</NavLink></li>
+                        <li><NavLink to={'/lazy2'} className='nav-active'>lazy2</NavLink></li>
+                        <li><NavLink to={'/lazy3'} className='nav-active'>lazy3</NavLink></li>
                     </ul>
                 </nav>
 
                 <Routes>
-                    <Route path='/' element={<h1>home</h1>} />
-                    <Route path='/about' element={<h1>about</h1>} />
+                    <Route path='/lazy' element={<h1>home</h1>} />
+                    <Route path='/lazy2' element={<h1>home</h1>} />
+                    <Route path='/lazy3' element={<h1>home</h1>} />
                 </Routes>
 
             </div>
