@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router'
 import logo from '../assets/react.svg'
 import { NavLink } from 'react-router-dom'
+import { LazyPage, LazyPage2, LazyPage3 } from '../01-lazyload/pages'
 
 export const Navigation = () => {
     return (
@@ -18,9 +19,9 @@ export const Navigation = () => {
                 </nav>
 
                 <Routes>
-                    <Route path='/lazy' element={<h1>home</h1>} />
-                    <Route path='/lazy2' element={<h1>home</h1>} />
-                    <Route path='/lazy3' element={<h1>home</h1>} />
+                    <Route path='/lazy' element={<LazyPage />} />
+                    <Route path='/lazy2' element={<LazyPage2 />} />
+                    <Route path='/lazy3' element={<LazyPage3 />} />
                 </Routes>
 
             </div>
