@@ -1,4 +1,5 @@
 import { lazy, LazyExoticComponent } from "react";
+import NoLazy from "../01-lazyload/pages/NoLazy";
 
 
 type JSXElement = () => JSX.Element
@@ -15,12 +16,17 @@ interface Router {
 
 
 
-export const routes = [
+export const routes: Router[] = [
     {
         path: '/lazyload',
         Component: lazy(() => import('../01-lazyload/layouts/LazyLayout')),
         name: 'lazyLoading page '
     },
+    {
+        path: '/nolazy',
+        Component: NoLazy,
+        name: 'no lazy loading'
+    }
     // {
     //     path: '/lazy2',
     //     Component: LazyPage2,
