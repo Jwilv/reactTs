@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 import { NavLink } from 'react-router-dom'
-import { LazyPage, LazyPage2, LazyPage3 } from '../01-lazyload/pages'
 import { routes } from './routes'
 
 export const Navigation = () => {
     return (
-        <>
+        <Suspense fallback={null}>
             <div className="main-layout">
 
                 <nav>
@@ -22,7 +21,7 @@ export const Navigation = () => {
                 <Routes>
                     {
                         routes.map(({ path, Component }) => {
-                            return <Route path={path} element={<Component />} />
+                            return <Route key={path} path={path} element={<Component />} />
                         })
                     }
 
@@ -31,6 +30,6 @@ export const Navigation = () => {
 
             </div>
 
-        </>
+        </Suspense>
     )
 }
