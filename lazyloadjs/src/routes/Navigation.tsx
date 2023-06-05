@@ -20,12 +20,20 @@ export const Navigation = () => {
 
                 <Routes>
                     {
-                        routes.map(({ path, Component }) => {
-                            return <Route key={path} path={path} element={<Component />} />
+                        routes.map(({ path, Component, children }) => {
+                            return (
+                                <Route key={path} path={path} element={<Component />}>
+                                    {
+                                        children?.map( ({path,Component})=>{
+                                            return( <Route key={path} path={path} element={<Component />} />)
+                                        })
+                                    }
+                                </Route>
+                            )
                         })
                     }
 
-                    
+
                 </Routes>
 
             </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navigation } from '../router/Navigation'
+import { Outlet } from 'react-router'
 
 const LazyLayout = () => {
 
@@ -7,6 +8,7 @@ const LazyLayout = () => {
         <>
             <h1>LazyLoafing Page </h1>
             <Navigation />
+            <Outlet />
         </>
     )
 }

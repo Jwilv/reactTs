@@ -19,14 +19,21 @@ interface Route {
 
 export const routes: Route[] = [
     {
-        path: '/lazyload',
+        path: '/lazyload/*',
         Component: lazy(() => import('../01-lazyload/layouts/LazyLayout')),
-        name: 'lazyLoading page '
+        name: 'lazyLoading page ',
+        children:[
+            {
+                path:'la',
+                Component:NoLazy,
+                name:'si se puede'
+            }
+        ]
     },
     {
         path: '/nolazy',
         Component: NoLazy,
-        name: 'no lazy loading'
+        name: 'no lazy loading',
     }
     // {
     //     path: '/lazy2',
