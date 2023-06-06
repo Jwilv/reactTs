@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import styles from '../styles/styles.module.css'
 import noImg from '../assets/no-image.jpg'
 
 export const ProductCard = () => {
+
+    const [counter, setCounter] = useState(0)
+
+    const increasBy = (value) => {
+        setCounter( prev => Math.max( prev +  value, 0) )
+    }
+
     return (
         <div className={styles.productCard}>
 
@@ -13,12 +20,14 @@ export const ProductCard = () => {
 
             <div className={styles.buttonsContainer}>
                 <button
-                className={styles.buttonMinus}
+                    className={styles.buttonMinus}
+                    onClick={ ()=> increasBy(-1) }
                 > - </button>
 
-                <div className={styles.countLabel}> 0 </div>
+                <div className={styles.countLabel}>{counter}</div>
 
-                <button className={ styles.buttonAdd }> + </button>
+                <button className={styles.buttonAdd}
+                    onClick={ ()=> increasBy(1)}> + </button>
             </div>
         </div>
     )
