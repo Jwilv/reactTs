@@ -7,7 +7,7 @@ interface Product {
 
 export const useProduct = (initialState = 0): Product => {
 
-    const [productNumber, setProcuctNumber] = useState(initialState)
+    const [productNumber, setProcuctNumber] = useState<number>(initialState)
 
     const increasBy = (value) => {
         setProcuctNumber( prev => Math.max( prev +  value, 0) )
