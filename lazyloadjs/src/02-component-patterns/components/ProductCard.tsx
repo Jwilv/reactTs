@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import styles from '../styles/styles.module.css'
 import noImg from '../assets/no-image.jpg'
+import { useProduct } from '../hooks/usePoduct'
 
 export const ProductCard = () => {
 
-    const [counter, setCounter] = useState(0)
-
-    const increasBy = (value) => {
-        setCounter( prev => Math.max( prev +  value, 0) )
-    }
+const {productNumber, increasBy} = useProduct( 0 )
 
     return (
         <div className={styles.productCard}>
@@ -24,7 +21,7 @@ export const ProductCard = () => {
                     onClick={ ()=> increasBy(-1) }
                 > - </button>
 
-                <div className={styles.countLabel}>{counter}</div>
+                <div className={styles.countLabel}>{productNumber}</div>
 
                 <button className={styles.buttonAdd}
                     onClick={ ()=> increasBy(1)}> + </button>
