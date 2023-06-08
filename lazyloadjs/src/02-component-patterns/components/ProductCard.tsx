@@ -13,6 +13,11 @@ interface Product {
     img: string,
 }
 
+interface ProducbuttonsProps {
+    productNumber: number,
+    increasBy: (value: any) => void,
+}
+
 export const ProductImg = ({ img = '' }) => {
     return (
         <img className={styles.productImg} src={img ? img : noImg} alt="No image" />
@@ -22,6 +27,22 @@ export const ProductImg = ({ img = '' }) => {
 export const ProductTitle = ({ title }: { title: string }) => {
     return (
         <span className={styles.productDescription}>{title}</span>
+    );
+}
+
+export const ProductButtons = ({ productNumber, increasBy }: ProducbuttonsProps) => {
+    return (
+        <div className={styles.buttonsContainer}>
+            <button
+                className={styles.buttonMinus}
+                onClick={() => increasBy(-1)}
+            > - </button>
+
+            <div className={styles.countLabel}>{productNumber}</div>
+
+            <button className={styles.buttonAdd}
+                onClick={() => increasBy(1)}> + </button>
+        </div>
     );
 }
 
@@ -38,17 +59,7 @@ export const ProductCard = ({ product }: Props) => {
 
             <ProductTitle title={product.title} />
 
-            <div className={styles.buttonsContainer}>
-                <button
-                    className={styles.buttonMinus}
-                    onClick={() => increasBy(-1)}
-                > - </button>
 
-                <div className={styles.countLabel}>{productNumber}</div>
-
-                <button className={styles.buttonAdd}
-                    onClick={() => increasBy(1)}> + </button>
-            </div>
         </div>
     )
 }
