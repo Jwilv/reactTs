@@ -11,7 +11,9 @@ export const ShoppingPage = () => {
         <div>
         <h1>ShoppingPage</h1>
         <hr />
-        <ProductCard product={product} />
+        <ProductCard product={product} >
+            <h1>children</h1>
+        </ProductCard>
         </div>
     )
 }

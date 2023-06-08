@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 import styles from '../styles/styles.module.css'
 import noImg from '../assets/no-image.jpg'
 import { useProduct } from '../hooks/usePoduct'
 
 interface Props {
-    product: Product
+    product: Product;
+    children?: ReactElement | ReactElement[]
 }
 interface Product {
     id?: number,
@@ -46,19 +47,21 @@ export const ProductButtons = ({ productNumber, increasBy }: ProducbuttonsProps)
     );
 }
 
-export const ProductCard = ({ product }: Props) => {
+export const ProductCard = ({ product, children }: Props) => {
 
     const { productNumber, increasBy } = useProduct(0)
 
     return (
         <div className={styles.productCard}>
+            {children}
 
             {/* <img className={styles.productImg} src="./coffee-mug.png" alt="Coffee mug" /> */}
 
-            <ProductImg img={product.img} />
+            {/* <ProductImg img={product.img} />
 
             <ProductTitle title={product.title} />
 
+            <ProductButtons productNumber={productNumber} increasBy={increasBy} /> */}
 
         </div>
     )
