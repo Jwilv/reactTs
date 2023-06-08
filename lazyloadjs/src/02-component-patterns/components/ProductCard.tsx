@@ -13,6 +13,12 @@ interface Product {
     img:string,
 }
 
+export const ProductImg = ({img = ''})=>{
+    return(
+        <img className={styles.productImg} src={ img ? img : noImg} alt="No image" />
+    );
+}
+
 export const ProductCard = ({ product } : Props) => {
 
 const {productNumber, increasBy} = useProduct( 0 )
@@ -21,8 +27,9 @@ const {productNumber, increasBy} = useProduct( 0 )
         <div className={styles.productCard}>
 
             {/* <img className={styles.productImg} src="./coffee-mug.png" alt="Coffee mug" /> */}
-            <img className={styles.productImg} src={ product.img ? product.img : noImg} alt="No image" />
-            <span className={styles.productDescription}>{product.title}</span>
+
+            <ProductImg img={product.img}/>
+            
 
             <div className={styles.buttonsContainer}>
                 <button
