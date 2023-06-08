@@ -4,7 +4,16 @@ import styles from '../styles/styles.module.css'
 import noImg from '../assets/no-image.jpg'
 import { useProduct } from '../hooks/usePoduct'
 
-export const ProductCard = () => {
+interface Props {
+    product : Product
+}
+interface Product {
+    id?:number,
+    title:string,
+    img:string,
+}
+
+export const ProductCard = ({ product } : Props) => {
 
 const {productNumber, increasBy} = useProduct( 0 )
 
@@ -12,8 +21,8 @@ const {productNumber, increasBy} = useProduct( 0 )
         <div className={styles.productCard}>
 
             {/* <img className={styles.productImg} src="./coffee-mug.png" alt="Coffee mug" /> */}
-            <img className={styles.productImg} src={noImg} alt="No image" />
-            <span className={styles.productDescription}>Coffee Mug</span>
+            <img className={styles.productImg} src={ product.img ? product.img : noImg} alt="No image" />
+            <span className={styles.productDescription}>{product.title}</span>
 
             <div className={styles.buttonsContainer}>
                 <button
