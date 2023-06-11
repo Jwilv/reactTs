@@ -12,7 +12,7 @@ export const ShoppingPage = () => {
         <h1>ShoppingPage</h1>
         <hr />
         <ProductCard product={product} >
-            <ProductCard.Img img={product.img}/>
+            <ProductCard.Img img='./coffee-mug.png'/>
             <ProductCard.Title title='Cafe' />
         </ProductCard>
         </div>
