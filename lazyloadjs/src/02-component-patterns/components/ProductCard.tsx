@@ -66,3 +66,7 @@ export const ProductCard = ({ product, children }: Props) => {
         </div>
     )
 }
+
+ProductCard.Title = ProductTitle;
+ProductCard.Img = ProductImg;
+ProductCard.Buttons = ProductButtons;

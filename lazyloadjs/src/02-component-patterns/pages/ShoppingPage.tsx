@@ -12,7 +12,8 @@ export const ShoppingPage = () => {
         <h1>ShoppingPage</h1>
         <hr />
         <ProductCard product={product} >
-            <h1>children</h1>
+            <ProductCard.Img img={product.img}/>
+            <ProductCard.Title title='Cafe' />
         </ProductCard>
         </div>
     )
