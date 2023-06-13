@@ -1,29 +1,11 @@
-import React, { ReactElement, createContext, useContext } from 'react'
+import React, { createContext, useContext } from 'react'
 
 import styles from '../styles/styles.module.css'
 import noImg from '../assets/no-image.jpg'
 import { useProduct } from '../hooks/usePoduct'
+import { ProductContextProps } from '../interfaces/interfaces'
 
-interface Props {
-    product: Product;
-    children?: ReactElement | ReactElement[]
-}
-interface Product {
-    id?: number,
-    title: string,
-    img?: string,
-}
 
-interface ProducbuttonsProps {
-    productNumber: number,
-    increasBy: (value: any) => void,
-}
-
-interface ProductContextProps {
-    productNumber: number;
-    increasBy: (value: any) => void;
-    product: Product;
-}
 
 const ProductContext = createContext({} as ProductContextProps)
 const { Provider } = ProductContext
