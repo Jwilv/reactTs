@@ -1,3 +1,4 @@
+import React from 'react'
 import { useContext } from "react";
 import { ProductContext } from "./ProductCard";
 
@@ -21,3 +22,4 @@ export const ProductButtons = () => {
         </div>
     );
 }
+
