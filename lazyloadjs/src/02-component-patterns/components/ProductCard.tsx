@@ -1,39 +1,14 @@
 import React, { createContext, useContext } from 'react'
 
 import styles from '../styles/styles.module.css'
-import noImg from '../assets/no-image.jpg'
 import { useProduct } from '../hooks/usePoduct'
-import { ProductContextProps } from '../interfaces/interfaces'
+import { ProductContextProps, Props } from '../interfaces/interfaces'
+import { ProductImg } from './ProductImg'
 
 
 
-const ProductContext = createContext({} as ProductContextProps)
+export const ProductContext = createContext({} as ProductContextProps)
 const { Provider } = ProductContext
-
-export const ProductImg = ({ img = '' }) => {
-
-    const { product } = useContext(ProductContext)
-
-    let imgToShow = product.img;
-
-    if (img) {
-        imgToShow = img;
-    } else if (!img && !product.img) {
-        imgToShow = noImg;
-    }
-
-    return (
-        <img className={styles.productImg} src={imgToShow} alt="No image" />
-    );
-}
-
-export const ProductTitle = ({ title }: { title?: string }) => {
-
-    const { product } = useContext(ProductContext)
-    return (
-        <span className={styles.productDescription}>{title ? title : product.title}</span>
-    );
-}
 
 export const ProductButtons = () => {
 
