@@ -22,7 +22,10 @@ export const ShoppingPage = () => {
                     title='Cafe'
                     className='text-white'
                 />
-                <ProductCard.Buttons className='buttons-white' />
+                <ProductCard.Buttons 
+                className='buttons-white'
+                style={{ backgroundColor:'green'}} 
+                />
             </ProductCard>
 
             <ProductCard
