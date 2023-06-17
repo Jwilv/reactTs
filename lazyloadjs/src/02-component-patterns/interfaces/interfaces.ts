@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { ProductTitleProps } from "../components/ProductTitle";
 
 export interface ProductCardProps {
     product: Product;
@@ -24,7 +25,7 @@ export interface ProductContextProps {
 
 export interface ProductCardHOCProps {
     ({ product, children }: ProductCardProps): React.JSX.Element;
-    Title: ({ title }: { title?: string; }) => React.JSX.Element;
+    Title: ({ title, className }: ProductTitleProps) => React.JSX.Element
     Img: ({ img }: { img?: string }) => React.JSX.Element;
     Buttons: () => React.JSX.Element;
 }

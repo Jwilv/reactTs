@@ -3,9 +3,6 @@ import React, { createContext } from 'react'
 import styles from '../styles/styles.module.css'
 import { useProduct } from '../hooks/usePoduct'
 import { ProductCardProps, ProductContextProps } from '../interfaces/interfaces'
-import { ProductImg } from './ProductImg'
-import { ProductTitle } from './ProductTitle'
-import { ProductButtons } from './ProductButtons'
 
 
 
