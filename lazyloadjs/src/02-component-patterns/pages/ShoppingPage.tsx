@@ -44,10 +44,18 @@ export const ShoppingPage = () => {
                 product={product}
                 className='bg-dark'
             >
-                <ProductImg img='./coffee-mug.png' />
+                <ProductImg 
+                img='./coffee-mug.png'
+                style={{
+                    borderRadius:'20px'
+                }}
+                />
                 <ProductTitle
                     className='text-white'
                     title='Cafe 2'
+                    style={{
+                        color:'green'
+                    }}
                 />
                 <ProductButtons className='buttons-white' />
             </ProductCard>
