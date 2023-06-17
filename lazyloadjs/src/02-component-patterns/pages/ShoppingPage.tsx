@@ -3,30 +3,51 @@ import { ProductButtons, ProductCard, ProductImg, ProductTitle } from '../compon
 import '../styles/custom-styles.css'
 
 const product = {
-img:'./coffee-mug.png',
-title:'Coffee'
+    img: './coffee-mug.png',
+    title: 'Coffee'
 }
 
 export const ShoppingPage = () => {
     return (
         <div>
-        <h1>ShoppingPage</h1>
-        <hr />
-        <ProductCard product={product} >
-            <ProductCard.Img img='./coffee-mug.png'/>
-            <ProductCard.Title title='Cafe' />
-        </ProductCard>
+            <h1>ShoppingPage</h1>
+            <hr />
+            <ProductCard
+                product={product}
+                className='bg-dark'
+                style={{ backgroundColor : 'grey'}}
+            >
+                <ProductCard.Img img='./coffee-mug.png' />
+                <ProductCard.Title
+                    title='Cafe'
+                    className='text-white'
+                />
+                <ProductCard.Buttons className='buttons-white' />
+            </ProductCard>
 
-        <ProductCard product={product}
-        className='bg-dark'
-        >
-            <ProductImg img='./coffee-mug.png'/>
-            <ProductTitle
-            className='text-white' 
-            title='Cafe' 
-            />
-            <ProductButtons className='buttons-white' />
-        </ProductCard>
+            <ProductCard
+                product={product}
+                className='bg-dark'
+            >
+                <ProductImg img='./coffee-mug.png' />
+                <ProductTitle
+                    className='text-white'
+                    title='Cafe 2'
+                />
+                <ProductButtons className='buttons-white' />
+            </ProductCard>
+
+            <ProductCard
+                product={product}
+                className='bg-dark'
+            >
+                <ProductImg img='./coffee-mug.png' />
+                <ProductTitle
+                    className='text-white'
+                    title='Cafe 2'
+                />
+                <ProductButtons className='buttons-white' />
+            </ProductCard>
         </div>
     )
 }
