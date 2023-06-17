@@ -1,4 +1,16 @@
-
-.bg-dark{
+.bg-dark {
     background-color: black;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-bold {
+    font-size: 50px;
+}
+
+.buttons-white button, .buttons-white div  {
+    border-color: white;
+    color: white;
 }

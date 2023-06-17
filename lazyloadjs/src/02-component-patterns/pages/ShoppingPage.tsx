@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProductCard, ProductImg, ProductTitle } from '../components'
+import { ProductButtons, ProductCard, ProductImg, ProductTitle } from '../components'
 import '../styles/custom-styles.css'
 
 const product = {
@@ -21,7 +21,11 @@ export const ShoppingPage = () => {
         className='bg-dark'
         >
             <ProductImg img='./coffee-mug.png'/>
-            <ProductTitle title='Cafe' />
+            <ProductTitle
+            className='text-white' 
+            title='Cafe' 
+            />
+            <ProductButtons className='buttons-white' />
         </ProductCard>
         </div>
     )
