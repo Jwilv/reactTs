@@ -1,64 +1,49 @@
 import React from 'react'
 import { ProductButtons, ProductCard, ProductImg, ProductTitle } from '../components'
 import '../styles/custom-styles.css'
+import { Product } from '../interfaces/interfaces'
 
 const product = {
     img: './coffee-mug.png',
-    title: 'Coffee'
+    title: 'Coffee',
+    id: 1,
 }
+
+const product2 = {
+    img: './69coffee-mug2.png',
+    title: 'Coffee meme',
+    id: 2,
+}
+
+const products: Product[] = [product, product2]
 
 export const ShoppingPage = () => {
     return (
         <div>
             <h1>ShoppingPage</h1>
             <hr />
-            <ProductCard
-                product={product}
-                className='bg-dark'
-                style={{ backgroundColor : 'grey'}}
-            >
-                <ProductCard.Img img='./coffee-mug.png' />
-                <ProductCard.Title
-                    title='Cafe'
-                    className='text-white'
-                />
-                <ProductCard.Buttons 
-                className='buttons-white'
-                style={{ backgroundColor:'green'}} 
-                />
-            </ProductCard>
 
-            <ProductCard
-                product={product}
-                className='bg-dark'
-            >
-                <ProductImg img='./coffee-mug.png' />
-                <ProductTitle
-                    className='text-white'
-                    title='Cafe 2'
-                />
-                <ProductButtons className='buttons-white' />
-            </ProductCard>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+            }}>
 
-            <ProductCard
-                product={product}
-                className='bg-dark'
-            >
-                <ProductImg 
-                img='./coffee-mug.png'
-                style={{
-                    borderRadius:'20px'
-                }}
-                />
-                <ProductTitle
-                    className='text-white'
-                    title='Cafe 2'
-                    style={{
-                        color:'green'
-                    }}
-                />
-                <ProductButtons className='buttons-white' />
-            </ProductCard>
+                {
+                    products.map(product => (
+                        <ProductCard
+                            product={product}
+                            className='bg-dark'
+                        >
+                            <ProductImg />
+                            <ProductTitle className='text-white' />
+                            <ProductButtons className='buttons-white' />
+                        </ProductCard>
+                    ))
+                }
+
+            </div>
+
         </div>
     )
 }
