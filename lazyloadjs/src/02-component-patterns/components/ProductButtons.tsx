@@ -4,12 +4,16 @@ import { ProductContext } from "./ProductCard";
 
 import styles from '../styles/styles.module.css'
 
+export interface ProductButtonsComponentProps {
+    className?: string;
+}
 
-export const ProductButtons = () => {
+
+export const ProductButtons = ({className} : ProductButtonsComponentProps)  => {
 
     const { increasBy, productNumber } = useContext(ProductContext)
     return (
-        <div className={styles.buttonsContainer}>
+        <div className={`${styles.buttonsContainer} ${ className }`}>
             <button
                 className={styles.buttonMinus}
                 onClick={() => increasBy(-1)}
