@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ProductButtons, ProductCard, ProductImg, ProductTitle } from '../components'
 import '../styles/custom-styles.css'
 import { Product } from '../interfaces/interfaces'
@@ -15,9 +15,19 @@ const product2 = {
     id: 2,
 }
 
+interface ProductInCart extends Product {
+    count: number;
+}
+
 const products: Product[] = [product, product2]
 
 export const ShoppingPage = () => {
+
+    const handleChangeProduct = (product : {count : number, product : Product})=>{
+        console.log('buenas', product)
+    }
+
+    const [ShoppingCart, setShoppingCart] = useState<{ [key:string]:ProductInCart}>({})
     return (
         <div>
             <h1>ShoppingPage</h1>
@@ -32,9 +42,10 @@ export const ShoppingPage = () => {
                 {
                     products.map(product => (
                         <ProductCard
-                            key={ product.id}
+                            key={product.id}
                             product={product}
                             className='bg-dark'
+                            onChange={ handleChangeProduct }
                         >
                             <ProductImg />
                             <ProductTitle className='text-white' />

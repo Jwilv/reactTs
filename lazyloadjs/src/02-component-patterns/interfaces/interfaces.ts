@@ -7,7 +7,13 @@ export interface ProductCardProps {
     product: Product;
     children?: ReactElement | ReactElement[];
     className?: string;
-    style?: CSSProperties
+    style?: CSSProperties;
+    onChange?: ( args : ProductChangeArgs)=> void;
+}
+
+export interface ProductChangeArgs{
+    count : number;
+    product : Product;
 }
 export interface Product {
     id?: number,
