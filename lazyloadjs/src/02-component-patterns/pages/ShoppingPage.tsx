@@ -32,6 +32,7 @@ export const ShoppingPage = () => {
                 {
                     products.map(product => (
                         <ProductCard
+                            key={ product.id}
                             product={product}
                             className='bg-dark'
                         >
@@ -42,6 +43,19 @@ export const ShoppingPage = () => {
                     ))
                 }
 
+            </div>
+
+
+            <div className='shopinng-cart'>
+                <ProductCard
+                    product={product}
+                    className='bg-dark'
+                    style={{ width: '100px' }}
+                >
+                    <ProductImg />
+                    <ProductTitle className='text-white' />
+                    <ProductButtons className='buttons-white' />
+                </ProductCard>
             </div>
 
         </div>
