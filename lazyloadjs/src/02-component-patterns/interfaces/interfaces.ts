@@ -16,7 +16,7 @@ export interface ProductChangeArgs{
     product : Product;
 }
 export interface Product {
-    id?: number,
+    id: string,
     title: string,
     img?: string,
 }

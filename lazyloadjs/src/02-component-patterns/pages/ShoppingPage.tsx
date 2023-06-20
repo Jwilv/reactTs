@@ -6,13 +6,13 @@ import { Product } from '../interfaces/interfaces'
 const product = {
     img: './coffee-mug.png',
     title: 'Coffee',
-    id: 1,
+    id: '1',
 }
 
 const product2 = {
     img: './69coffee-mug2.png',
     title: 'Coffee meme',
-    id: 2,
+    id: '2',
 }
 
 interface ProductInCart extends Product {
@@ -23,11 +23,24 @@ const products: Product[] = [product, product2]
 
 export const ShoppingPage = () => {
 
-    const handleChangeProduct = (product : {count : number, product : Product})=>{
-        console.log('buenas', product)
+    const [ShoppingCart, setShoppingCart] = useState<{ [key:string]:ProductInCart}>({})
+
+    const handleChangeProduct = ({ count, product} : {count : number, product : Product})=>{
+
+        setShoppingCart( oldShoppingCart => {
+
+            if(count === 0){
+                const { [product.id] : toDelete, ...rest} = oldShoppingCart
+                return rest
+            }
+
+            return {
+                ...oldShoppingCart,
+                [product.id] : { ...product, count}
+            }
+        })
     }
 
-    const [ShoppingCart, setShoppingCart] = useState<{ [key:string]:ProductInCart}>({})
     return (
         <div>
             <h1>ShoppingPage</h1>
@@ -68,6 +81,12 @@ export const ShoppingPage = () => {
                     <ProductButtons className='buttons-white' />
                 </ProductCard>
             </div>
+
+            <code>
+                {
+                    JSON.stringify(ShoppingCart,null,5)
+                }
+            </code>
 
         </div>
     )
