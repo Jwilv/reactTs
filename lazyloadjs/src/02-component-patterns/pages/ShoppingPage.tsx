@@ -59,6 +59,7 @@ export const ShoppingPage = () => {
                             product={product}
                             className='bg-dark'
                             onChange={ handleChangeProduct }
+                            count={ShoppingCart[product.id]?.count || 0}
                         >
                             <ProductImg />
                             <ProductTitle className='text-white' />
@@ -71,15 +72,20 @@ export const ShoppingPage = () => {
 
 
             <div className='shopinng-cart'>
-                <ProductCard
-                    product={product}
-                    className='bg-dark'
-                    style={{ width: '100px' }}
-                >
-                    <ProductImg />
-                    <ProductTitle className='text-white' />
-                    <ProductButtons className='buttons-white' />
-                </ProductCard>
+                {
+                    Object.entries(ShoppingCart).map( ([key, product])=>(
+                        <ProductCard 
+                        key={key} 
+                        product={product}
+                        count={product.count}
+                        onChange={ handleChangeProduct }
+                        >
+                            <ProductImg />
+                            <ProductTitle />
+                            <ProductButtons />
+                        </ProductCard>
+                    ))
+                }
             </div>
 
             <code>

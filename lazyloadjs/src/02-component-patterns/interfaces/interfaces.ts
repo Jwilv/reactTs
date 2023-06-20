@@ -4,6 +4,7 @@ import { ProductImgProps } from "../components/ProductImg";
 import { ProductButtonsComponentProps } from "../components/ProductButtons";
 
 export interface ProductCardProps {
+    count ?: number;
     product: Product;
     children?: ReactElement | ReactElement[];
     className?: string;

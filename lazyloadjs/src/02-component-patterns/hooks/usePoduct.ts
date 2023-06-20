@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Product, ProductChangeArgs } from '../interfaces/interfaces';
 
 interface ReturnProduct {
@@ -22,6 +22,11 @@ export const useProduct = ({ initialState = 0, onChange, product} : Props): Retu
 
         onChange && onChange({ count : newValue, product})
     }
+
+    useEffect(() => {
+        setProcuctNumber(initialState)
+    }, [initialState])
+    
 
     return{productNumber,increasBy}
 }
