@@ -23,21 +23,27 @@ const products: Product[] = [product, product2]
 
 export const ShoppingPage = () => {
 
-    const [ShoppingCart, setShoppingCart] = useState<{ [key:string]:ProductInCart}>({})
+    const [ShoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({})
 
-    const handleChangeProduct = ({ count, product} : {count : number, product : Product})=>{
+    const handleChangeProduct = ({ count, product }: { count: number, product: Product }) => {
 
-        setShoppingCart( oldShoppingCart => {
+        setShoppingCart(oldShoppingCart => {
 
-            if(count === 0){
-                const { [product.id] : toDelete, ...rest} = oldShoppingCart
-                return rest
+            const productCart: ProductInCart = oldShoppingCart[product.id] || { ...product, count: 0 }
+
+            if (Math.max(productCart.count + count, 0) > 0) {
+                productCart.count += count;
+
+                return {
+                    ...oldShoppingCart,
+                    [product.id]: productCart
+                }
             }
 
-            return {
-                ...oldShoppingCart,
-                [product.id] : { ...product, count}
-            }
+            const { [product.id]: toDelete, ...rest } = oldShoppingCart
+
+            return { ...rest }
+
         })
     }
 
@@ -58,7 +64,7 @@ export const ShoppingPage = () => {
                             key={product.id}
                             product={product}
                             className='bg-dark'
-                            onChange={ handleChangeProduct }
+                            onChange={handleChangeProduct}
                             count={ShoppingCart[product.id]?.count || 0}
                         >
                             <ProductImg />
@@ -73,12 +79,12 @@ export const ShoppingPage = () => {
 
             <div className='shopinng-cart'>
                 {
-                    Object.entries(ShoppingCart).map( ([key, product])=>(
-                        <ProductCard 
-                        key={key} 
-                        product={product}
-                        count={product.count}
-                        onChange={ handleChangeProduct }
+                    Object.entries(ShoppingCart).map(([key, product]) => (
+                        <ProductCard
+                            key={key}
+                            product={product}
+                            count={product.count}
+                            onChange={handleChangeProduct}
                         >
                             <ProductImg />
                             <ProductTitle />
@@ -90,7 +96,7 @@ export const ShoppingPage = () => {
 
             <code>
                 {
-                    JSON.stringify(ShoppingCart,null,5)
+                    JSON.stringify(ShoppingCart, null, 5)
                 }
             </code>
 

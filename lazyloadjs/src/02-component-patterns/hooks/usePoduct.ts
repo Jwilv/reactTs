@@ -16,7 +16,7 @@ export const useProduct = ({ initialState = 0, onChange, product} : Props): Retu
 
     const [productNumber, setProcuctNumber] = useState<number>(initialState)
 
-    const isControlled = useRef(!!onchange)
+    const isControlled = useRef(!!onChange)
 
     const increasBy = (value) => {
 
