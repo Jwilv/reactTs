@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Product, ProductChangeArgs } from '../interfaces/interfaces';
 
 interface ReturnProduct {
@@ -16,7 +16,14 @@ export const useProduct = ({ initialState = 0, onChange, product} : Props): Retu
 
     const [productNumber, setProcuctNumber] = useState<number>(initialState)
 
+    const isControlled = useRef(!!onchange)
+
     const increasBy = (value) => {
+
+        if (isControlled) {
+            return onChange!({ count:value, product})
+        }
+
         const newValue = Math.max( productNumber +  value, 0)
         setProcuctNumber( newValue )
 
