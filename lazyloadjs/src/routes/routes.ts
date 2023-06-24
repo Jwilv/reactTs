@@ -1,6 +1,7 @@
 import { lazy, LazyExoticComponent } from "react";
 import NoLazy from "../01-lazyload/pages/NoLazy";
 import { ShoppingPage } from "../02-component-patterns/pages/ShoppingPage";
+import { StateInitialazer } from "../02-component-patterns/pages/stateinitialacer";
 
 
 type JSXElement = () => JSX.Element
@@ -40,6 +41,11 @@ export const routes: Route[] = [
         path:'shopping',
         Component: ShoppingPage,
         name:'ShoppingPage'
+    },
+    {
+        path:'stateinitialazer',
+        Component:StateInitialazer,
+        name:'state initialazer'
     }
     // {
     //     path: '/lazy2',
