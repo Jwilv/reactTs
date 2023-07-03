@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Product, ProductChangeArgs } from '../interfaces/interfaces';
+import { InitialValues, Product, ProductChangeArgs } from '../interfaces/interfaces';
 
 interface ReturnProduct {
     productNumber: number,
@@ -7,14 +7,15 @@ interface ReturnProduct {
 }
 
 interface Props{
-    initialState?: number;
+    value?: number;
     onChange?: (args: ProductChangeArgs) => void
     product : Product;
+    initialValues?: InitialValues;
 }
 
-export const useProduct = ({ initialState = 0, onChange, product} : Props): ReturnProduct => {
+export const useProduct = ({ value = 0, onChange, product, initialValues} : Props): ReturnProduct => {
 
-    const [productNumber, setProcuctNumber] = useState<number>(initialState)
+    const [productNumber, setProcuctNumber] = useState<number>( initialValues?.counter || value)
 
     const isControlled = useRef(!!onChange)
 
@@ -31,8 +32,8 @@ export const useProduct = ({ initialState = 0, onChange, product} : Props): Retu
     }
 
     useEffect(() => {
-        setProcuctNumber(initialState)
-    }, [initialState])
+        setProcuctNumber(value)
+    }, [value])
     
 
     return{productNumber,increasBy}

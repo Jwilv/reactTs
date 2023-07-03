@@ -10,6 +10,12 @@ export interface ProductCardProps {
     className?: string;
     style?: CSSProperties;
     onChange?: ( args : ProductChangeArgs)=> void;
+    initialValues : InitialValues ; 
+}
+
+export interface InitialValues{
+    counter: number;
+    countMax: number;
 }
 
 export interface ProductChangeArgs{
