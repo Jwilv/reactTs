@@ -24,6 +24,10 @@ export const StateInitialazer = () => {
                             key={product.id}
                             product={product}
                             className='bg-dark'
+                            initialValues={{
+                                counter: 10,
+                                countMax: 15,
+                            }}
                         >
                             <ProductImg />
                             <ProductTitle className='text-white' />

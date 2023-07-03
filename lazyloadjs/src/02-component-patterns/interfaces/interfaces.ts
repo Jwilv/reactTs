@@ -10,7 +10,7 @@ export interface ProductCardProps {
     className?: string;
     style?: CSSProperties;
     onChange?: ( args : ProductChangeArgs)=> void;
-    initialValues : InitialValues ; 
+    initialValues?: InitialValues ; 
 }
 
 export interface InitialValues{

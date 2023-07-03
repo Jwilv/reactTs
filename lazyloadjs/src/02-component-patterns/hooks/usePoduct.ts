@@ -19,21 +19,37 @@ export const useProduct = ({ value = 0, onChange, product, initialValues} : Prop
 
     const isControlled = useRef(!!onChange)
 
+    const isMounted = useRef(false)
+
     const increasBy = (value) => {
 
-        if (isControlled) {
+        if (isControlled.current) {
             return onChange!({ count:value, product})
         }
 
-        const newValue = Math.max( productNumber +  value, 0)
+        let newValue = Math.max( productNumber +  value, 0)
+        if( initialValues?.countMax ){
+            newValue = Math.min( newValue, initialValues.countMax)
+        }
+
         setProcuctNumber( newValue )
 
         onChange && onChange({ count : newValue, product})
-    }
+    }   
 
     useEffect(() => {
-        setProcuctNumber(value)
+
+        if( !isMounted.current ) return ; 
+        
+        if( isControlled.current ){
+            setProcuctNumber(value); 
+        }
+
     }, [value])
+
+    useEffect(() => {
+        isMounted.current = true
+    }, [])
     
 
     return{productNumber,increasBy}
