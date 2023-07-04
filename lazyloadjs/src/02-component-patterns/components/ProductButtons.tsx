@@ -12,11 +12,7 @@ export interface ProductButtonsComponentProps {
 
 export const ProductButtons = ({className, style } : ProductButtonsComponentProps)  => {
 
-    const { increasBy, productNumber, countMax } = useContext(ProductContext)
-
-    const isMaxReached = useCallback( 
-        () => !!countMax && productNumber === countMax , 
-        [productNumber, countMax], )
+    const { increasBy, productNumber, isMaxReached  } = useContext(ProductContext)
     
     return (
         <div 
@@ -30,7 +26,7 @@ export const ProductButtons = ({className, style } : ProductButtonsComponentProp
 
             <div className={styles.countLabel}>{productNumber}</div>
 
-            <button className={`${styles.buttonAdd} ${ isMaxReached() && styles.disabled } `}
+            <button className={`${styles.buttonAdd} ${ isMaxReached && styles.disabled } `}
                 onClick={() => increasBy(1)}> + </button>
         </div>
     );

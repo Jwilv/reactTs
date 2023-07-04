@@ -3,7 +3,8 @@ import { InitialValues, Product, ProductChangeArgs } from '../interfaces/interfa
 
 interface ReturnProduct {
     productNumber: number,
-    increasBy:  (value: any) => void
+    increasBy:  (value: any) => void;
+    isMaxReached : boolean
 }
 
 interface Props{
@@ -50,7 +51,9 @@ export const useProduct = ({ value = 0, onChange, product, initialValues} : Prop
     useEffect(() => {
         isMounted.current = true
     }, [])
+
+    const isMaxReached = !!initialValues?.countMax && productNumber === initialValues.countMax
     
 
-    return{productNumber,increasBy}
+    return{productNumber,increasBy,isMaxReached}
 }
