@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ProductButtons, ProductCard, ProductImg, ProductTitle } from '../components'
 import '../styles/custom-styles.css'
-import { Product } from '../interfaces/interfaces'
+import { Product, ProductCardHandlers } from '../interfaces/interfaces'
 import { useShoppingCart } from '../hooks/useShoppingCart'
 
 const product = {
@@ -29,12 +29,12 @@ export const StateInitialazer = () => {
                                 countMax: 15,
                             }}
                         >
-                            { (message:string)=> (
+                            { ( {reset} : ProductCardHandlers )=> (
                             <>
                                 <ProductImg />
                                 <ProductTitle className='text-white' />
                                 <ProductButtons className='buttons-white' />
-                                <h3 className='text-white'>{message}</h3>
+                                <button onClick={reset}>Reset</button>
                             </>
                             )}
                         </ProductCard>

@@ -7,11 +7,21 @@ export interface ProductCardProps {
     count ?: number;
     product: Product;
     // children?: ReactElement | ReactElement[];
-    children?: ( message: string) => JSX.Element;
+    children?: ( props : ProductCardHandlers ) => JSX.Element;
     className?: string;
     style?: CSSProperties;
     onChange?: ( args : ProductChangeArgs)=> void;
     initialValues?: InitialValues ; 
+}
+
+export interface ProductCardHandlers{
+    count: number;
+    isMaxReached: boolean;
+    countMax?: number;
+    product: Product;
+
+    increasBy: (value: any) => void,
+    reset: () => void
 }
 
 export interface InitialValues{
