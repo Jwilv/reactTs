@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 
 import styles from '../styles/styles.module.css'
 import { useProduct } from '../hooks/usePoduct'
-import { ProductCardProps, ProductContextProps } from '../interfaces/interfaces'
+import { ProductCardProps, ProductContextProps, InitialValues } from '../interfaces/interfaces';
 
 
 
@@ -18,13 +18,14 @@ export const ProductCard = ({
     count, 
     initialValues }: ProductCardProps) => {
 
-    const { productNumber, increasBy } = useProduct({ value : count, product, onChange, initialValues})
+    const { productNumber, increasBy } = useProduct({ value : count, product, onChange, initialValues}) 
 
     return (
         <Provider value={{
             product,
             productNumber,
-            increasBy
+            increasBy,
+            countMax : initialValues?.countMax
         }}>
             <div 
             className={`${styles.productCard} ${className}`}
