@@ -6,7 +6,8 @@ import { ProductButtonsComponentProps } from "../components/ProductButtons";
 export interface ProductCardProps {
     count ?: number;
     product: Product;
-    children?: ReactElement | ReactElement[];
+    // children?: ReactElement | ReactElement[];
+    children?: ( message: string) => JSX.Element;
     className?: string;
     style?: CSSProperties;
     onChange?: ( args : ProductChangeArgs)=> void;

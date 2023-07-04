@@ -30,7 +30,7 @@ export const ProductCard = ({
             className={`${styles.productCard} ${className}`}
             style={style}
             >
-                {children}
+                { children && children('hola mundo')  }
             </div>
         </Provider>
     )

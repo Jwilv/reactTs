@@ -29,9 +29,14 @@ export const StateInitialazer = () => {
                                 countMax: 15,
                             }}
                         >
-                            <ProductImg />
-                            <ProductTitle className='text-white' />
-                            <ProductButtons className='buttons-white' />
+                            { (message:string)=> (
+                            <>
+                                <ProductImg />
+                                <ProductTitle className='text-white' />
+                                <ProductButtons className='buttons-white' />
+                                <h3 className='text-white'>{message}</h3>
+                            </>
+                            )}
                         </ProductCard>
 
 
