@@ -26,7 +26,7 @@ export interface ProductCardHandlers{
 
 export interface InitialValues{
     counter: number;
-    countMax: number;
+    countMax?: number;
 }
 
 export interface ProductChangeArgs{

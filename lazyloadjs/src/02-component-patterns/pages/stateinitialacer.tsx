@@ -26,15 +26,19 @@ export const StateInitialazer = () => {
                             className='bg-dark'
                             initialValues={{
                                 counter: 10,
-                                countMax: 15,
+                                // countMax: 15,
                             }}
                         >
-                            { ( {reset} : ProductCardHandlers )=> (
+                            { ( {reset,count,increasBy} : ProductCardHandlers )=> (
                             <>
                                 <ProductImg />
                                 <ProductTitle className='text-white' />
                                 <ProductButtons className='buttons-white' />
                                 <button onClick={reset}>Reset</button>
+                                <button onClick={ ()=>{ increasBy(-2) }}>-2</button>
+                                <button  onClick={ ()=>{ increasBy(+2) }}>+2</button>
+                                <p className='text-white' >{count}</p>
+                                
                             </>
                             )}
                         </ProductCard>
