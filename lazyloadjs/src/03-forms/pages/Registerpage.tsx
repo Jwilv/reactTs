@@ -13,9 +13,9 @@ const Registerpage = () => {
         repeatPassword: '123456',
     }
 
-    const { values, changeField, reset } = useForm(fields)
+    const { formData, changeField, reset } = useForm(fields)
 
-    const { name, email, password, repeatPassword } = values
+    const { name, email, password, repeatPassword } = formData
 
     return (
         <div>
