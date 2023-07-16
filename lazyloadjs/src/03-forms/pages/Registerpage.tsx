@@ -7,15 +7,15 @@ import { useForm } from '../hooks/useForm'
 const Registerpage = () => {
 
     const fields = {
-        name : 'juan',
+        name: 'juan',
         email: 'juanTest@gmail.com',
-        password:'123456',
-        repeatPassword:'123456',
+        password: '123456',
+        repeatPassword: '123456',
     }
 
-    const { values, changeField, reset} = useForm(fields)
+    const { values, changeField, reset } = useForm(fields)
 
-    const { name, email, password, repeatPassword} = values
+    const { name, email, password, repeatPassword } = values
 
     return (
         <div>

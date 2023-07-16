@@ -1,14 +1,6 @@
 import { ChangeEvent, useState } from "react"
 
-interface Fields  {
-    name?: string,
-    email?: string,
-    password?: string,
-    repeatPassword?: string,
-}
-
-
-export const useForm = (initialValue : Fields) => {
+export const useForm = <T>(initialValue : T) => {
     const [values, setValues] = useState(initialValue);
 
     const changeField = (event: ChangeEvent<HTMLInputElement>) => {
