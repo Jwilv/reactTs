@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ProductButtons, ProductCard, ProductImg, ProductTitle } from '../components'
-import '../styles/custom-styles.css'
-import { Product, ProductCardHandlers } from '../interfaces/interfaces'
-import { useShoppingCart } from '../hooks/useShoppingCart'
+import {  ProductCardHandlers } from '../interfaces/interfaces'
 
 const product = {
     img: './coffee-mug.png',
@@ -23,22 +21,16 @@ export const StateInitialazer = () => {
                         <ProductCard
                             key={product.id}
                             product={product}
-                            className='bg-dark'
                             initialValues={{
                                 counter: 10,
-                                // countMax: 15,
+                                countMax: 15,
                             }}
                         >
-                            { ( {reset,count,increasBy} : ProductCardHandlers )=> (
+                            { ( {reset,count,increasBy, countMax, isMaxReached} : ProductCardHandlers )=> (
                             <>
                                 <ProductImg />
-                                <ProductTitle className='text-white' />
-                                <ProductButtons className='buttons-white' />
-                                <button onClick={reset}>Reset</button>
-                                <button onClick={ ()=>{ increasBy(-2) }}>-2</button>
-                                <button  onClick={ ()=>{ increasBy(+2) }}>+2</button>
-                                <p className='text-white' >{count}</p>
-                                
+                                <ProductTitle />
+                                <ProductButtons/>
                             </>
                             )}
                         </ProductCard>
