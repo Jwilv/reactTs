@@ -9,7 +9,7 @@ const FormikBasic = () => {
     return (
         <div>
             <form>
-                
+
                 <label>First name </label>
                 <input
                     type="text"
@@ -41,4 +41,4 @@ const FormikBasic = () => {
     )
 }
 
-export default Registerpage
+export default FormikBasic
