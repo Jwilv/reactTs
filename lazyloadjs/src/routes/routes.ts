@@ -4,6 +4,7 @@ import { ShoppingPage } from "../02-component-patterns/pages/ShoppingPage";
 import { StateInitialazer } from "../02-component-patterns/pages/stateinitialacer";
 import Registerpage from "../03-forms/pages/Registerpage";
 import FormikBasic from "../03-forms/pages/FormikBasic";
+import FormYup from "../03-forms/pages/FormYup";
 
 
 type JSXElement = () => JSX.Element
@@ -58,6 +59,11 @@ export const routes: Route[] = [
         path:'formikbasic',
         Component: FormikBasic,
         name:'Formik basic'
+    },
+    {
+        path:'formyup',
+        Component: FormYup,
+        name:'Form Yup'
     }
     // {
     //     path: '/lazy2',
