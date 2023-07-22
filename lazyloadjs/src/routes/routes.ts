@@ -55,7 +55,7 @@ export const routes: Route[] = [
         name:'register'
     },
     {
-        path:'formik basic',
+        path:'formikbasic',
         Component: FormikBasic,
         name:'Formik basic'
     }

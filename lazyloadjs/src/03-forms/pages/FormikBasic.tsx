@@ -1,20 +1,35 @@
+import { useFormik } from 'formik'
 
-
-import React, { FormEvent } from 'react'
+import React from 'react'
 import "../styles/styles.css"
-import { useForm } from '../hooks/useForm'
-
+import { InitialValues } from '../../02-component-patterns/interfaces/interfaces';
 const FormikBasic = () => {
+
+    const { handleChange, values, handleSubmit } = useFormik({
+        initialValues: {
+            firstName: "",
+            lastName: "",
+            email: "",
+        },
+        onSubmit: (values) => {
+            console.log(values)
+        }
+    })
 
     return (
         <div>
-            <form>
+            <form 
+            noValidate
+            onSubmit={handleSubmit}
+            >
 
                 <label>First name </label>
                 <input
                     type="text"
                     placeholder='firstName'
                     name='firstName'
+                    onChange={handleChange}
+                    value={values.firstName}
                 />
                 <span>first name is required</span>
 
@@ -23,6 +38,8 @@ const FormikBasic = () => {
                     type="text"
                     placeholder='lastName'
                     name='lastName'
+                    onChange={handleChange}
+                    value={values.lastName}
                 />
                 <span>last name is required</span>
 
@@ -31,6 +48,8 @@ const FormikBasic = () => {
                     type="email"
                     placeholder='emial'
                     name='email'
+                    onChange={handleChange}
+                    value={values.email}
                 />
                 <span>email is required</span>
                 <span>check for an valid email format</span>
