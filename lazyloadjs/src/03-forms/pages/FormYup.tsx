@@ -4,12 +4,6 @@ import * as Yup from 'yup'
 import React from 'react'
 import "../styles/styles.css"
 
-interface FormValues {
-    firstName: string;
-    lastName: string;
-    email: string;
-}
-
 
 const FormYup = () => {
 
@@ -26,7 +20,7 @@ const FormYup = () => {
 
     })
 
-    const { handleChange, values, handleSubmit, handleBlur, errors, touched } = useFormik({
+    const { handleChange, values, handleSubmit, handleBlur, errors, touched, getFieldProps } = useFormik({
         initialValues: {
             firstName: "",
             lastName: "",
@@ -49,10 +43,7 @@ const FormYup = () => {
                 <input
                     type="text"
                     placeholder='firstName'
-                    name='firstName'
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values.firstName}
+                    {...getFieldProps('firstName')}
                 />
                 {touched.firstName && errors.firstName && <span>{errors.firstName}</span>}
 
@@ -60,10 +51,7 @@ const FormYup = () => {
                 <input
                     type="text"
                     placeholder='lastName'
-                    name='lastName'
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values.lastName}
+                    {...getFieldProps('lastName')}
                 />
                 {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
 
@@ -71,10 +59,7 @@ const FormYup = () => {
                 <input
                     type="email"
                     placeholder='emial'
-                    name='email'
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values.email}
+                    {...getFieldProps('email')}
                 />
                 {touched.email && errors.email && <span>{errors.email}</span>}
 
