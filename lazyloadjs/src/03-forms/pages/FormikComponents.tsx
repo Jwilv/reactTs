@@ -1,4 +1,4 @@
-import { FormikErrors, useFormik } from 'formik'
+import { Formik, Field, ErrorMessage, Form } from 'formik'
 import * as Yup from 'yup'
 
 import React from 'react'
@@ -20,52 +20,34 @@ const FormikComponents = () => {
 
     })
 
-    const { handleSubmit, errors, touched, getFieldProps } = useFormik({
-        initialValues: {
-            firstName: "",
-            lastName: "",
-            email: "",
-        },
-        onSubmit: (values) => {
-            console.log(values)
-        },
-        validationSchema
-    })
-
     return (
-        <div>
-            <form
-                noValidate
-                onSubmit={handleSubmit}
-            >
+        <Formik 
+        initialValues={{ firstName: "", lastName: "", email: "" }}
+        onSubmit={ (values)=>{console.log(values)}}
+        validationSchema={validationSchema}
+        >
+            {
+                ()=>(
+                    <Form>
 
-                <label>First name </label>
-                <input
-                    type="text"
-                    placeholder='firstName'
-                    {...getFieldProps('firstName')}
-                />
-                {touched.firstName && errors.firstName && <span>{errors.firstName}</span>}
+                    <label htmlFor="fistName">First Name</label>
+                    <Field type="text" name="firstName" />
+                    <ErrorMessage name="firstName" component='span'/>
 
-                <label > last name </label>
-                <input
-                    type="text"
-                    placeholder='lastName'
-                    {...getFieldProps('lastName')}
-                />
-                {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
+                    <label htmlFor="lastName">Last Name</label>
+                    <Field type="text" name="lastName" />
+                    <ErrorMessage name="lastName" component='span'/>
 
-                <label > email</label>
-                <input
-                    type="email"
-                    placeholder='emial'
-                    {...getFieldProps('email')}
-                />
-                {touched.email && errors.email && <span>{errors.email}</span>}
+                    <label htmlFor="email">Email</label>
+                    <Field type="email" name="email" />
+                    <ErrorMessage name="email" component='span'/>
 
-                <button type='submit'>Create</button>
-            </form>
-        </div>
+                    <button type='submit'>Create</button>
+
+                </Form>
+                )
+            }
+        </Formik>
     )
 }
 
