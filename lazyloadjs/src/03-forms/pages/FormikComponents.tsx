@@ -5,7 +5,7 @@ import React from 'react'
 import "../styles/styles.css"
 
 
-const FormYup = () => {
+const FormikComponents = () => {
 
     const validationSchema = Yup.object({
         firstName: Yup.string()
@@ -69,4 +69,4 @@ const FormYup = () => {
     )
 }
 
-export default FormYup
+export default FormikComponents
