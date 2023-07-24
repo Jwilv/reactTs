@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 import React from 'react'
 import "../styles/styles.css"
 import { TextInput } from '../components/TextInput'
+import { Selection } from '../components/Selection'
 
 
 const FormikAbstractation = () => {
@@ -37,6 +38,15 @@ const FormikAbstractation = () => {
                         <TextInput label='First Name' name='firstName' />
 
                         <TextInput label='Last Name' name='lastName' />
+
+                        <Selection label='Terms' name='terms' >
+                        <option value="">--Select--</option>
+                            <option value="developer">developer</option>
+                            <option value="designer">designer</option>
+                            <option value="manager">manager</option>
+                            <option value="other">other</option>
+                            <option value="intern">intern</option>
+                        </Selection>
 
                         <TextInput label='Email' name='email' type='email' />
 
