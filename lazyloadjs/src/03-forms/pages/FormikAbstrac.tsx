@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 
 import React from 'react'
 import "../styles/styles.css"
+import { TextInput } from '../components/TextInput'
 
 
 const FormikAbstractation = () => {
@@ -31,19 +32,13 @@ const FormikAbstractation = () => {
         >
             {
                 () => (
-                    <Form>
+                    <Form noValidate>
 
-                        <label htmlFor="fistName">First Name</label>
-                        <Field type="text" name="firstName" />
-                        <ErrorMessage name="firstName" component='span' />
+                        <TextInput label='First Name' name='firstName' />
 
-                        <label htmlFor="lastName">Last Name</label>
-                        <Field type="text" name="lastName" />
-                        <ErrorMessage name="lastName" component='span' />
+                        <TextInput label='Last Name' name='lastName' />
 
-                        <label htmlFor="email">Email</label>
-                        <Field type="email" name="email" />
-                        <ErrorMessage name="email" component='span' />
+                        <TextInput label='Email' name='email' type='email' />
 
                         <label ><Field type="checkbox" name="terms" />terminos</label>
                         <ErrorMessage name="terms" component='span' />
