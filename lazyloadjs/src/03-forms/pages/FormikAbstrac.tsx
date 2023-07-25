@@ -3,9 +3,7 @@ import * as Yup from 'yup'
 
 import React from 'react'
 import "../styles/styles.css"
-import { TextInput } from '../components/TextInput'
-import { Selection } from '../components/Selection'
-import { Checkbox } from '../components/Checkbox'
+import { Checkbox, Selection, TextInput } from '../components'
 
 
 const FormikAbstractation = () => {
