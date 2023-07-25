@@ -35,7 +35,6 @@ const FormikAbstractation = () => {
             {
                 () => (
                     <Form noValidate>
-
                         <TextInput label='First Name' name='firstName' />
 
                         <TextInput label='Last Name' name='lastName' />
@@ -52,11 +51,8 @@ const FormikAbstractation = () => {
                         <TextInput label='Email' name='email' type='email' />
 
                         <Checkbox name='terms' label='terminos y condiciones' />
-                        <Checkbox name='terms' label='terminos y condiciones' />
-
 
                         <button type='submit'>Create</button>
-
                     </Form>
                 )
             }
