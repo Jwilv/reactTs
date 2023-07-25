@@ -40,7 +40,7 @@ const FormikAbstractation = () => {
                         <TextInput label='Last Name' name='lastName' />
 
                         <Selection label='Terms' name='terms' >
-                        <option value="">--Select--</option>
+                            <option value="">--Select--</option>
                             <option value="developer">developer</option>
                             <option value="designer">designer</option>
                             <option value="manager">manager</option>
