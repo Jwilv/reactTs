@@ -5,6 +5,7 @@ import React from 'react'
 import "../styles/styles.css"
 import { TextInput } from '../components/TextInput'
 import { Selection } from '../components/Selection'
+import { Checkbox } from '../components/Checkbox'
 
 
 const FormikAbstractation = () => {
@@ -39,7 +40,7 @@ const FormikAbstractation = () => {
 
                         <TextInput label='Last Name' name='lastName' />
 
-                        <Selection label='Terms' name='terms' >
+                        <Selection label='job' name='job' >
                             <option value="">--Select--</option>
                             <option value="developer">developer</option>
                             <option value="designer">designer</option>
@@ -50,19 +51,9 @@ const FormikAbstractation = () => {
 
                         <TextInput label='Email' name='email' type='email' />
 
-                        <label ><Field type="checkbox" name="terms" />terminos</label>
-                        <ErrorMessage name="terms" component='span' />
+                        <Checkbox name='terms' label='terminos y condiciones' />
+                        <Checkbox name='terms' label='terminos y condiciones' />
 
-                        <label htmlFor="job">Select job</label>
-                        <Field as='select' name="job" >
-                            <option value="">--Select--</option>
-                            <option value="developer">developer</option>
-                            <option value="designer">designer</option>
-                            <option value="manager">manager</option>
-                            <option value="other">other</option>
-                            <option value="intern">intern</option>
-                        </Field>
-                        <ErrorMessage name="job" component='span' />
 
                         <button type='submit'>Create</button>
 
