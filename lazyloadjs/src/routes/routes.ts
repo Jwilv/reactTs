@@ -8,6 +8,7 @@ import FormYup from "../03-forms/pages/FormYup";
 import FormikComponents from "../03-forms/pages/FormikComponents";
 import FormikAbstractation from "../03-forms/pages/FormikAbstrac";
 import RegisterFormikPage from "../03-forms/pages/RegisterFormikPage";
+import { DynamicForm } from "../03-forms/pages/DynamicForm";
 
 
 type JSXElement = () => JSX.Element
@@ -83,6 +84,11 @@ export const routes: Route[] = [
         Component: RegisterFormikPage,
         name:'Register Formik Page',
     },
+    {
+        path:'dynamicform',
+        Component: DynamicForm,
+        name:'Dynamic Form'
+    }
     // {
     //     path: '/lazy2',
     //     Component: LazyPage2,
