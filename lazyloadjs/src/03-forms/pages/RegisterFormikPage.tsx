@@ -2,80 +2,58 @@
 
 import React, { FormEvent } from 'react'
 import "../styles/styles.css"
-import { useForm } from '../hooks/useForm'
+import { Form, Formik } from 'formik'
+import * as Yup from 'yup';
+import { TextInput } from '../components';
 
 const RegisterFormikPage = () => {
 
     const fields = {
-        name: 'juan',
-        email: 'juanTest@gmail.com',
-        password: '123456',
-        repeatPassword: '123456',
+        name: '',
+        email: '',
+        password: '',
+        repeatPassword: '',
     }
 
-    const { formData, changeField, reset, isValidEmail} = useForm(fields)
-
-    const { name, email, password, repeatPassword } = formData
-
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const handleSubmit = (values) => {
+        console.log(values)
     }
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
+    const validationsFields = Yup.object({
+        name: Yup.string()
+            .min(2, 'too short')
+            .max(15, 'too long')
+            .required('required'),
+        email: Yup.string()
+            .email('invalid email')
+            .required('required'),
+        password: Yup.string()
+            .min(6, 'min 6 characters')
+            .max(15, 'max 15 characters')
+            .required('required'),
+        repeatPassword: Yup.string()
+            .min(6, 'min 6 characters')
+            .max(15, 'max 15 characters')
+            .oneOf([Yup.ref('password')], 'passwords do not match')
+            .required('required')
 
-                <input
-                    type="email"
-                    placeholder='Email'
-                    name='email'
-                    value={email}
-                    onChange={changeField}
-                    className={`${ !isValidEmail(email) && 'has-error'}`}
-                />
-                {
-                    !isValidEmail(email) && <span>el email es requerido</span>
-                }
+    })
 
-                <input
-                    type="text"
-                    placeholder='Name'
-                    name='name'
-                    value={name}
-                    onChange={changeField}
-                    className={`${ name.trim().length <= 3  && 'has-error'}`}
-                />
-                {
-                    name.trim().length <= 3  && <span>the name is invalid </span>
-                }
+    return (<Formik initialValues={fields} onSubmit={handleSubmit} validationSchema={validationsFields} >
+        {
+            ({handleReset}) =>(
+                <Form noValidate>
+                    <TextInput label='Name' name='name' />
+                    <TextInput label='Email' name='email' type='email' />
+                    <TextInput label='Password' name='password' type='password' />
+                    <TextInput label='Repeat Password' name='repeatPassword' type='password' />
+                    <button type='submit'>Create</button>
+                    <button onClick={handleReset}>Reset</button>
+                </Form>
+            )
+        }
+    </Formik>
 
-                <input
-                    type="password"
-                    placeholder='Password'
-                    name='password'
-                    value={password}
-                    onChange={changeField}
-                    className={`${ password.trim().length < 6  && 'has-error'}`}
-                />
-                {
-                    password.trim().length < 6  && <span>The password must be at least 6 characters</span>
-                }
-
-                <input
-                    type="password"
-                    placeholder='Repeat Password'
-                    name='repeatPassword'
-                    value={repeatPassword}
-                    onChange={changeField}
-                    className={`${ repeatPassword !== password  && 'has-error'}`}
-                />
-                {
-                    repeatPassword !== password  && <span>invalid password</span>
-                }
-
-                <button type='submit'>Create</button>
-            </form>
-        </div>
     )
 }
 
