@@ -1,0 +1,44 @@
+[
+    {
+        "type":"input",
+        "name":"firstName",
+        "placeholder":"First name",
+        "label":"First name",
+        "value":"aaa"
+    },
+    {
+        "type":"input",
+        "name":"lastName",
+        "placeholder":"Last Name",
+        "label":"Last Name",
+        "value":"pedro"
+    },
+    {
+        "type":"email",
+        "name":"email",
+        "placeholder":"email",
+        "label":"email",
+        "value":"hola@com"
+    },
+    {
+        "type":"select",
+        "name":"rango",
+        "placeholder":"",
+        "label":"select rango",
+        "value":"",
+        "options":[
+            {
+                "id":1,
+                "label":"Jr"
+            },
+            {
+                "id":2,
+                "label":"Ssr"
+            },
+            {
+                "id":3,
+                "label":"Sr"
+            }
+        ]
+    }
+]
