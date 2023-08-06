@@ -4,21 +4,43 @@
         "name":"firstName",
         "placeholder":"First name",
         "label":"First name",
-        "value":"aaa"
+        "value":"",
+        "validations":[
+            {
+                "type":"required"
+            },
+            {
+                "type":"minlength",
+                "value":5
+            }
+        ]
     },
     {
         "type":"input",
         "name":"lastName",
         "placeholder":"Last Name",
         "label":"Last Name",
-        "value":"pedro"
+        "value":"",
+        "validations":[
+            {
+                "type":"required"
+            }
+        ]
     },
     {
         "type":"email",
         "name":"email",
         "placeholder":"email",
         "label":"email",
-        "value":"hola@com"
+        "value":"",
+        "validations":[
+            {
+                "type":"required"
+            },
+            {
+                "type":"email"
+            }
+        ]
     },
     {
         "type":"select",
@@ -26,6 +48,11 @@
         "placeholder":"",
         "label":"select rango",
         "value":"",
+        "validations":[
+            {
+                "type":"required"
+            }
+        ],
         "options":[
             {
                 "id":1,
